@@ -29,13 +29,13 @@
     <ClInclude Include="LinkedList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ListStack.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Istack.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ListNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Iqueue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ListQueue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

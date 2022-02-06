@@ -143,9 +143,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Exception.h" />
-    <ClInclude Include="Istack.h" />
+    <ClInclude Include="Iqueue.h" />
     <ClInclude Include="LinkedList.h" />
-    <ClInclude Include="ListStack.h" />
+    <ClInclude Include="ListQueue.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="ListNode.h" />
   </ItemGroup>
