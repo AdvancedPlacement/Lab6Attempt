@@ -24,6 +24,8 @@ namespace data_structures
         void Clear() noexcept override;
         size_t Size() const noexcept override;
         bool Empty() const noexcept override;
+        T Peek(); //removed overrride
+
     private:
         LinkedList<T> queue_;
 
@@ -86,5 +88,12 @@ namespace data_structures
     {
         return queue_.Empty();
     }
+     template <class T>
+     T ListQueue<T>::Peek()
+     {
+
+         return queue_.Last();
+     }
+
 }
 #endif
