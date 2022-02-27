@@ -1,10 +1,108 @@
 #ifndef LINKED_LIST_HPP
 #define LINKED_LIST_HPP
 
+#include <iostream>
+#include <list>
+#include <cstring>
 #include "ListNode.h"
+using namespace std;
 
 namespace data_structures
 {
+	//template <class K, V> for the k and V, how do I add this like T for template <class T>
+
+	class HashTable {
+	private:
+		static const int HashGroups = 10;
+		list<pair<int, string>> table[HashGroups]; // list 1 = index 0, list 2 index 1, etc
+
+	public:
+		bool isEmpty() const;
+		int hashFunction(int key);
+		//void I(int K key, V value);
+		string searchTable(int key); //K key?
+		void printTable();
+		void Insert(int key, string value);
+		void removeItem(int key);
+
+		//void Insert(K key, V value);
+		//void setHash(K key); // Extra credit if you do with a function pointer for this
+		//V operator [] (K key);
+		//void Delete(K key);
+		//void Traverse(V value); // traverse all values from the given value
+	};
+
+	bool HashTable::isEmpty() const {
+		int sum{};
+		for (int i{}; i < HashGroups; i++){
+		sum += table[i].size();
+
+		}
+		if (!sum) {
+			return true;
+		}
+		//https://www.youtube.com/watch?v=2_3fR-k-LzI
+		return false;
+	}
+
+	int HashTable::hashFunction(int key) {
+		return key % HashGroups; //key is 905, in return this function will spit out 5
+	}
+	void HashTable::Insert(int key, string value)
+	{
+		int HashValue = hashFunction(key);
+		auto& cell = table[HashValue];
+		auto bItr = begin(cell);
+		bool keyExists = false;
+		for (; bItr != end(cell); bItr++) {
+			if (bItr->first == key) {
+				keyExists = true;
+				bItr->second = value;
+				cout << "warning: key exists value replaced." << endl;
+				break;
+			}
+		}
+		if (!keyExists) {
+			cell.emplace_back(key, value);
+		}
+		return;
+	}
+
+	void HashTable::removeItem(int key) {
+		{
+			int HashValue = hashFunction(key);
+			auto& cell = table[HashValue];
+			auto bItr = begin(cell);
+			bool keyExists = false;
+			for (; bItr != end(cell); bItr++) {
+				if (bItr->first == key) {
+					keyExists = true;
+					bItr = cell.erase(bItr); //ERASE, returns iterator to next iterator of bItr. Ie  2->3
+					cout << "info: item removed." << endl;
+					break;
+				}
+			}
+			if (!keyExists) {
+				cout << "WARNING: item not found." << endl;
+			}
+			return;
+		}
+	}
+		void HashTable::printTable() {
+			for (int i{}; i < HashGroups; i++) {
+				if (table[i].size() == 0) continue;
+
+				auto bItr = table[i].begin();
+				for(; bItr != table[i].end(); bItr++) {
+					cout << "info: key: " << bItr->first << " Value: " << bItr->second << endl;
+			}
+				return;
+		}
+		
+	}
+
+		
+
 	template <class T>
 	class LinkedList final
 	{

@@ -260,6 +260,35 @@ int main()
 {
 
 
+			HashTable HT;
+
+			if (HT.isEmpty()) {
+				cout << "correct!" << endl;
+			}
+			else { cout << "EMPTY ERROR" << endl; 
+			};
+
+			HT.Insert(903, "Barack");
+			HT.Insert(202, "Tom");
+			HT.Insert(407, "John");
+			HT.Insert(604, "Boi");
+			HT.Insert(206, "Barb");
+			HT.Insert(507, "Rob");
+			HT.Insert(507, "Rick"); //test to replace rob with rick
+
+			HT.printTable();
+
+			HT.removeItem(407);
+			HT.removeItem(100);
+
+			if (HT.isEmpty()) {
+				cout << "UH OH" << endl;
+			}
+			else {
+				cout << "NOT EMPTY, WOO!" << endl;
+			};
+
+
 	if (Queue_Enqueue_Test1())
 	{
 		cout << "PASSED Enqueue test1!" << endl;
